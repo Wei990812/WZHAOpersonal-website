@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | My Portfolio</title>
+    <link rel="stylesheet" href="about_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <button id="music-toggle" class="music-btn">🎵</button>
+    <audio id="background-music" loop>
+        <source src="images/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="w3-content w3-container">
+        <h3 class="about-me-title">ABOUT ME</h3>
+        <div class="w3-row about-me-container">
+            <div class="w3-col m6">
+                <img src="images/school.jpg" class="school-image" alt="School Photo">
+            </div>
+            <div class="w3-col m6">
+                <div class="about-info">
+                    <p><span class="info-label">Name:</span> ZHAO Wei</p>
+                    <p><span class="info-label">School:</span> Hong Kong Baptist University</p>
+                    <p><span class="info-label">Major:</span> Master of Science in Artificial Intelligence Digital Media</p>
+                    <p><span class="info-label">Skills:</span> Programming (Python), SQL, PR, PS</p>
+                    <p><span class="info-label">Work Experience:</span> Journalist（Shenzhen）</p>
+                    <p><span class="info-label">Zodiac Sign:</span> Leo 🦁</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="portfolio">
+        <h3 class="portfolio-title">What I Love Doing</h3>
+        <p class="portfolio-subtitle">
+            <strong class="info-label">Savoring Delicious Eats & Exploring Wildlife Wonders</strong><br>Click to Enlarge
+        </p>
+        <div class="image-grid">
+            <img src="images/food_1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Food Photo 1">
+            <img src="images/food_2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Food Photo 2">
+            <img src="images/food_3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Food Photo 3">
+            <img src="images/food_4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Food Photo 4">
+            <img src="images/zoo_1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zoo Photo 1">
+            <img src="images/zoo_2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zoo Photo 2">
+            <img src="images/zoo_3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zoo Photo 3">
+            <img src="images/zoo_4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zoo Photo 4">
+        </div>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption" class="w3-opacity w3-large"></p>
+        </div>
+    </div>
+
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+
+        // 从 localStorage 读取播放状态
+        const isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        if (isPlaying) {
+            backgroundMusic.play().catch((error) => {
+                console.error('播放音乐时出错:', error);
+            });
+            musicToggle.textContent = "🔊";
+        }
+
+        musicToggle.addEventListener('click', function () {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play().catch((error) => {
+                    console.error('播放音乐时出错:', error);
+                });
+                musicToggle.textContent = "🔊";
+                localStorage.setItem('musicPlaying', 'true');
+            } else {
+                backgroundMusic.pause();
+                musicToggle.textContent = "🎵";
+                localStorage.setItem('musicPlaying', 'false');
+            }
+        });
+    </script>
+</body>
+</html>

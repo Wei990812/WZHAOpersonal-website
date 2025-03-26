@@ -1,0 +1,203 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Comic Neue', cursive;
+}
+
+body,
+html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8dc; /* Light yellow background */
+}
+
+/* About me section styles */
+.w3-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* 添加顶部内边距，让内容向下移动 */
+    padding-top: 80px; 
+}
+
+/* Adjust title position */
+.about-me-title {
+    font-size: 3.5em;
+    text-align: center;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Synchronize image and text container movement */
+.about-me-container {
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    gap: 40px;
+    margin-bottom: 20px;
+    justify-content: center;
+    padding: 0 10%;
+}
+
+.w3-col.m6 {
+    width: 50%;
+}
+
+.school-image {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Move image to the right */
+}
+
+.about-info {
+    font-size: 1.1em;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Further reduce text spacing */
+    height: 100%; /* Ensure information area height matches image */
+    justify-content: center; /* Vertically center information */
+}
+
+.info-label {
+    font-weight: 700;
+    color: #ff6f61;
+    text-shadow: 1px 1px 0 #ccc;
+}
+
+/* Portfolio section styles */
+#portfolio {
+    padding: 5px 10%;
+    margin-top: -40px;
+    padding-bottom: 80px; /* Increase bottom margin */
+    border-bottom: 8px solid #ccc; /* Thick bottom border */
+}
+
+.portfolio-title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px; /* Reduce spacing with subtitle */
+}
+
+.portfolio-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.portfolio-subtitle strong.info-label {
+    font-weight: 700;
+    color: #ff6f61;
+    text-shadow: 1px 1px 0 #ccc;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.w3-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.w3-modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.w3-modal-content img {
+    width: 100%;
+}
+
+.w3-modal .w3-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .about-me-title {
+        margin-top: -30px;
+    }
+    .about-me-container {
+        top: 0;
+        flex-direction: column;
+        padding: 0;
+    }
+    .school-image {
+        width: 100%;
+        margin-left: 0;
+    }
+    .w3-col.m6 {
+        width: 100%;
+    }
+    #portfolio {
+        padding: 5px 5%;
+        margin-top: -20px;
+        padding-bottom: 40px;
+        border-bottom: 4px solid #ccc;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff8dc;
+}
+
+.music-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff6f61;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}

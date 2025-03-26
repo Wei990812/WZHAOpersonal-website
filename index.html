@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">🦁🦁🦁🦁🦁</a>
+        <nav>
+            <ul>
+                <li><a class="home" href="#home">Home</a></li>
+                <li><a class="about" href="about.html">About</a></li>
+                <li><a class="portfolio" href="images/Portfolio of Zhao Wei.pdf">Portfolio</a></li>
+            </ul>
+        </nav>
+        <button id="music-toggle" class="music-btn">🎵</button>
+        <audio id="background-music" loop>
+            <source src="images/music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="intro-text">
+                <h2>Hello everyone! I'm ZHAO Wei</h2>
+                <h2>Welcome to my vibrant corner of the internet 🌻</h2>
+                <button class="btn black" onclick="window.location.href='about.html'">About Me</button>
+                <button class="btn white" onclick="window.location.href='images/Portfolio of Zhao Wei.pdf'">Portfolio</button>
+            </div>
+            <div class="intro-image">
+                <img src="images/personal_photo.jpg" alt="Designer's photo">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact: 24448788@life.hkbu.edu.hk</p>
+    </footer>
+
+    <script>
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+
+        // 页面加载时从 localStorage 中读取音乐播放状态
+        const isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        if (isPlaying) {
+            backgroundMusic.play().catch((error) => {
+                console.error('播放音乐时出错:', error);
+            });
+            musicToggle.textContent = "🔊";
+        }
+
+        musicToggle.addEventListener('click', function () {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play().catch((error) => {
+                    console.error('播放音乐时出错:', error);
+                });
+                musicToggle.textContent = "🔊";
+                localStorage.setItem('musicPlaying', 'true');
+            } else {
+                backgroundMusic.pause();
+                musicToggle.textContent = "🎵";
+                localStorage.setItem('musicPlaying', 'false');
+            }
+        });
+    </script>
+</body>
+
+</html>
